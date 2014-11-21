@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/home/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/home/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/home/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/home/footer.jsp" />
+	</definition>
+
+ 	<definition name="login.page" extends="base.definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/WEB-INF/views/home/login.jsp" />
+	</definition>
+
+ 	<definition name="access.denied.page" extends="base.definition">
+		<put-attribute name="title" value="Login Page" />
+		<put-attribute name="body" value="/WEB-INF/views/home/accessDenied.jsp" />
+	</definition>
+
+	<definition name="welcome.page" extends="base.definition">
+		<put-attribute name="title" value="AAAi Home Page" />
+		<put-attribute name="body" value="/WEB-INF/views/home/welcome.jsp" />
+	</definition>
+
+	<definition name="contact.page" extends="base.definition">
+		<put-attribute name="title" value="Contacts" />
+		<put-attribute name="body" value="/WEB-INF/views/home/contact.jsp" />
+	</definition>
+
+	<definition name="faq.page" extends="base.definition">
+		<put-attribute name="title" value="Frequently Asked Questions" />
+		<put-attribute name="body" value="/WEB-INF/views/home/faq.jsp" />
+	</definition>
+
+	<definition name="auth.welcome.page" extends="base.definition">
+		<put-attribute name="title" value="Main Page" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/welcome.jsp" />
+	</definition>
+
+	<definition name="investments.page" extends="base.definition">
+		<put-attribute name="title" value="Investments Page" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/investments.jsp" />
+	</definition>
+
+	<definition name="projects.page" extends="base.definition">
+		<put-attribute name="title" value="Projects Page" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/projects.jsp" />
+	</definition>
+	
+	<!-- USER PAGES -->
+
+	<definition name="user.create.page" extends="base.definition">
+		<put-attribute name="title" value="Create New User" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/user/create.jsp" />
+	</definition>
+
+	<definition name="user.update.page" extends="base.definition">
+		<put-attribute name="title" value="Update Existing User" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/user/update.jsp" />
+	</definition>
+
+	<definition name="user.show.page" extends="base.definition">
+		<put-attribute name="title" value="Show User" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/user/show.jsp" />
+	</definition>
+
+	<definition name="user.list.page" extends="base.definition">
+		<put-attribute name="title" value="List Users" />
+		<put-attribute name="body" value="/WEB-INF/views/protected/user/list.jsp" />
+	</definition>
+
+</tiles-definitions>
