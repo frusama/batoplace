@@ -72,7 +72,7 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value = "/homePage/initLogin.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/homePage/loginForm.htm", method = RequestMethod.GET)
 	public String initLogin(ModelMap model, HttpServletRequest request) {
 		if (request.getSession().getAttribute(Constants.SESSION_KEY_USER_IS_AUTHENTICATED) != null) {
 			return "auth.welcome.page";
@@ -81,7 +81,7 @@ public class LoginController {
 		return "login.page";
 	}
 
-	@RequestMapping(value = "/homePage/loginfailed.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/homePage/loginFailed.htm", method = RequestMethod.GET)
 	public String loginerror(ModelMap model) {
 
 		model.addAttribute("error", "true");

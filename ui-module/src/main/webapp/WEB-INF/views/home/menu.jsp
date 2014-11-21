@@ -8,11 +8,11 @@
 	<li><a href="${pageContext.request.contextPath}/homePage/faq.htm">FAQ</a></li>
     <c:choose>
 	    <c:when test="${not empty sessionScope['userIsAuthenticated']}">
-	    	<li><a href="${pageContext.request.contextPath}/protected/initCreateUser.htm">Create User</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/protected/createUserForm.htm">Create User</a></li>
 	    	<li><a href="${pageContext.request.contextPath}/protected/logout.htm">Logout</a></li>
 	    </c:when>
 	    <c:otherwise>
-	    	<li><a href="${pageContext.request.contextPath}/homePage/initLogin.htm">Login</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/homePage/loginForm.htm">Login</a></li>
 	    </c:otherwise>
 	</c:choose>
 </ul>
