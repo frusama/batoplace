@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:security="http://www.springframework.org/schema/security"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<security:global-method-security secured-annotations="enabled" />
+
+	<security:http auto-config="true" access-denied-page="/pages/403.jsp">
+		<security:session-management invalid-session-url="/homePage/initLogin.htm">
+			<security:concurrency-control max-sessions="1" expired-url="/homePage/initLogin.htm" />
+		</security:session-management>
+		<!-- Restrict URLs based on role -->
+		<security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/js/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/homePage/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<security:intercept-url pattern="/protected/**" access="ROLE_ADMIN,ROLE_USEER,ROLE_SUPER_USER" />
+
+		<!-- Override default login and logout pages -->
+		<security:form-login login-page="/homePage/initLogin.htm" 
+						default-target-url="/protected/welcome.htm" 
+						authentication-failure-url="/homePage/loginfailed.htm" />
+		<security:logout logout-url="/protected/logout.htm" logout-success-url="/homePage/welcome.htm" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="authenticationService"/>
+	</security:authentication-manager>
+
+</beans>
