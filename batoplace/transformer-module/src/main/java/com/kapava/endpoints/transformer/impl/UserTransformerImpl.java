@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kapava.common.dto.UserDto;
 import com.kapava.common.enums.UserRole;
 import com.kapava.dao.entity.User;
@@ -67,5 +69,11 @@ public class UserTransformerImpl implements UserTransformer {
 			userDtoList.add(convertFrom(user));
 		}
 		return userDtoList;
+	}
+
+	public String toJson(List<UserDto> userDtoList) throws Exception {
+		Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy hh:mm aaa").create();
+		String jsonString = gson.toJson(userDtoList);
+		return String.format("%s%s%s", "{\"aaData\": ", jsonString, "}");
 	}
 }

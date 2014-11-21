@@ -4,3 +4,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/image_slide.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.galleriffic.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.opacityrollover.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/datatable/jquery.dataTables.editable.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/datatable/jquery.dataTables.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/datatable/jquery.dateFormat.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/datatable/jquery.jeditable.js"></script>
