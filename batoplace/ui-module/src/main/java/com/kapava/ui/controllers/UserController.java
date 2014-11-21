@@ -22,8 +22,8 @@ public class UserController {
 	@Resource(name="userService")
 	UserService userService;
 
-	@RequestMapping(value = "/initCreateUser.htm")
-	public ModelAndView initCreate() {
+	@RequestMapping(value = "/createUserForm.htm")
+	public ModelAndView createForm() {
 		ModelAndView mav = new ModelAndView("user.create.page");
 		try {
 			List<LabelValueBean> userRoleList = userService.getAllRoles();
@@ -54,8 +54,8 @@ public class UserController {
 		return list(request, response);
 	}
 
-	@RequestMapping(value = "/initUpdateUser.htm")
-	public ModelAndView initUpdate(HttpServletRequest request) {
+	@RequestMapping(value = "/updateUserForm.htm")
+	public ModelAndView updateForm(HttpServletRequest request) {
 		UserDto userDto = null;
 		List<LabelValueBean> userRoleList = null;
 		String userName = request.getParameter("userName");

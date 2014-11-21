@@ -10,8 +10,8 @@
 	<security:global-method-security secured-annotations="enabled" />
 
 	<security:http auto-config="true" access-denied-page="/pages/403.jsp">
-		<security:session-management invalid-session-url="/homePage/initLogin.htm">
-			<security:concurrency-control max-sessions="1" expired-url="/homePage/initLogin.htm" />
+		<security:session-management invalid-session-url="/homePage/loginForm.htm">
+			<security:concurrency-control max-sessions="1" expired-url="/homePage/loginForm.htm" />
 		</security:session-management>
 		<!-- Restrict URLs based on role -->
 		<security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -22,9 +22,9 @@
 		<security:intercept-url pattern="/protected/**" access="ROLE_ADMIN,ROLE_USEER,ROLE_SUPER_USER" />
 
 		<!-- Override default login and logout pages -->
-		<security:form-login login-page="/homePage/initLogin.htm" 
+		<security:form-login login-page="/homePage/loginForm.htm" 
 						default-target-url="/protected/welcome.htm" 
-						authentication-failure-url="/homePage/loginfailed.htm" />
+						authentication-failure-url="/homePage/loginFailed.htm" />
 		<security:logout logout-url="/protected/logout.htm" logout-success-url="/homePage/welcome.htm" />
 	</security:http>
 

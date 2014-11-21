@@ -45,8 +45,8 @@ public class UserServiceImpl implements UserService {
 	public List<LabelValueBean> getAllRoles() throws Exception {
 		List<LabelValueBean> lvbList = new ArrayList<LabelValueBean>();
 		lvbList.add(new LabelValueBean("Administrator", "ROLE_ADMIN"));
-		lvbList.add(new LabelValueBean("User", "ROLE_ADMIN"));
-		lvbList.add(new LabelValueBean("Super User", "ROLE_ADMIN"));
+		lvbList.add(new LabelValueBean("User", "ROLE_USER"));
+		lvbList.add(new LabelValueBean("Super User", "ROLE_SUPER_USER"));
 		return lvbList;
 	}
 
