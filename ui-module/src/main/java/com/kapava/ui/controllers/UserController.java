@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kapava.common.bean.LabelValueBean;
@@ -51,7 +53,7 @@ public class UserController {
 
 	@RequestMapping(value = "/createUser.htm", params = "cancelCreateUser")
 	public String cancelCreateUser(HttpServletRequest request, HttpServletResponse response) {
-		return list(request, response);
+		return null; //TODO: list(request, response);
 	}
 
 	@RequestMapping(value = "/updateUserForm.htm")
@@ -88,7 +90,7 @@ public class UserController {
 
 	@RequestMapping(value = "/updateUser.htm", params = "cancelUpdateUser")
 	public String cancelUpdateUser(HttpServletRequest request, HttpServletResponse response) {
-		return list(request, response);
+		return null;//TODO: list(request, response);
 	}
 
 	@RequestMapping(value = "/showUserDetails.htm")
@@ -106,11 +108,23 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/listUsers.htm")
-	public String list(HttpServletRequest request, HttpServletResponse response) {
-		List<User> userList = null;
+	@RequestMapping(value = "/listUsersForm.htm")
+	public ModelAndView listUsersForm() {
+		ModelAndView mav = new ModelAndView("user.list.page");
+		return mav;
+	}
 
-		return "user.list.page";
+	@RequestMapping(value = "/listUsers.json", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public String list(HttpServletRequest request, HttpServletResponse response) {
+		String jsonResponse = null;
+		try {
+			jsonResponse = userService.jsonUserList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return jsonResponse;
 	}
 
 	@RequestMapping(value = "/deleteUser.htm")
@@ -121,6 +135,6 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list(request, response);
+		return null; //TODO: list(request, response);
 	}
 }

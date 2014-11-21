@@ -8,6 +8,8 @@ import com.kapava.common.dto.UserDto;
 public interface UserService {
 	
 	public List<UserDto> list() throws Exception;
+
+	public String jsonUserList() throws Exception;
 	
 	public List<UserDto> list(String role) throws Exception;
 	

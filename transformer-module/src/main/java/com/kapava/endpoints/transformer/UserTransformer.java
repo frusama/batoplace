@@ -17,4 +17,5 @@ public interface UserTransformer {
 
 	public List<UserDto> convertFrom(List<User> userList) throws Exception;
 
+	public String toJson(List<UserDto> userDtoList) throws Exception;
 }

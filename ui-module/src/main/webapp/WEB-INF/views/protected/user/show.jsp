@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 
-<form name="userForm" action="${pageContext.request.contextPath}/protected/listUsers.htm" method="post">
+<form name="userForm" action="${pageContext.request.contextPath}/protected/listUsersForm.htm" method="post">
 <br/><br/>
 	<table class="sectionTable">
 		<tr>

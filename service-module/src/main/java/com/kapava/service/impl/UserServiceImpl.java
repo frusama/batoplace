@@ -32,6 +32,10 @@ public class UserServiceImpl implements UserService {
 		return userTransformer.convertFrom(userList);
 	}
 
+	public String jsonUserList() throws Exception {
+		return userTransformer.toJson(list());
+	}
+
 	public List<UserDto> list(String role) throws Exception {
 		List<User> userList = userJpa.list(role);
 		return userTransformer.convertFrom(userList);
