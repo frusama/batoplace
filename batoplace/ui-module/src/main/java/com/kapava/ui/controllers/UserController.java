@@ -119,7 +119,7 @@ public class UserController {
 	public String list(HttpServletRequest request, HttpServletResponse response) {
 		String jsonResponse = null;
 		try {
-			jsonResponse = userService.jsonUserList();
+			jsonResponse = userService.jsonUserDtoList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

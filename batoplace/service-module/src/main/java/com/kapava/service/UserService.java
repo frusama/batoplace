@@ -9,7 +9,7 @@ public interface UserService {
 	
 	public List<UserDto> list() throws Exception;
 
-	public String jsonUserList() throws Exception;
+	public String jsonUserDtoList() throws Exception;
 	
 	public List<UserDto> list(String role) throws Exception;
 	

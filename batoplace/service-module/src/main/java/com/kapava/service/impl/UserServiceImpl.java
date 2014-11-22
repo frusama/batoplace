@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 		return userTransformer.convertFrom(userList);
 	}
 
-	public String jsonUserList() throws Exception {
+	public String jsonUserDtoList() throws Exception {
 		return userTransformer.toJson(list());
 	}
 
